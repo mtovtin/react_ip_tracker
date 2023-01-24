@@ -8,7 +8,7 @@ import 'leaflet/dist/leaflet.css';
 import React, {useState} from 'react';
 import Geocode from "react-geocode";
 import 'leaflet/dist/leaflet.css'
-import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
+import { MapContainer, TileLayer, Marker} from 'react-leaflet'
 function App() {
   const [message, setMessage] = useState('');
   const [ip, setIp] = useState('');
@@ -42,6 +42,7 @@ const handleClick = () => {
   console.log(message);
   findIp(message);
 }
+
 const findIp = (ip) => {
   $.ajax({
     url: "https://geo.ipify.org/api/v1",
@@ -73,13 +74,6 @@ Geocode.fromAddress(data.location.city).then(
   }
 
 );
-
-
-
-
-
-
-
     }
 });
 }
